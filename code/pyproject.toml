@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Uğur Çayoğlu <cayoglu@me.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.4"
+black = "^21.9b0"
+
+[tool.poetry.scripts]
+main = "app:main"
+
+[tool.black]
+line-length = 140
+target-version = ['py38']
