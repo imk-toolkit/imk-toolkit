@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "app"
+name = "imktk"
 version = "0.1.0"
-description = ""
+description = "Toolkit provided by IMK at KIT"
 authors = ["Uğur Çayoğlu <cayoglu@me.com>"]
 
 [tool.poetry.dependencies]
@@ -12,7 +12,7 @@ pytest = "^3.4"
 black = "^21.9b0"
 
 [tool.poetry.scripts]
-main = "app:main"
+main = "imktk:main"
 
 [tool.black]
 line-length = 140
