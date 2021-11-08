@@ -12,7 +12,7 @@ pytest = "^3.4"
 black = "^21.9b0"
 
 [tool.poetry.scripts]
-main = "imktk:main"
+imktk = "imktk:main"
 
 [tool.black]
 line-length = 140

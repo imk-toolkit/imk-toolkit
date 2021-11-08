@@ -19,4 +19,4 @@ RUN poetry config virtualenvs.create false
 COPY --chown=python:python . /home/python/code/
 RUN poetry install --no-interaction --no-ansi
 
-CMD ["main"]
+CMD ["imktk"]
