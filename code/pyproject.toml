@@ -2,14 +2,19 @@
 name = "imktk"
 version = "0.1.0"
 description = "Toolkit provided by IMK at KIT"
-authors = ["Uğur Çayoğlu <cayoglu@me.com>"]
+authors = [
+    "Uğur Çayoğlu <cayoglu@me.com>",
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+xarray = "^0.20.1"
+netCDF4 = "^1.5.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.4"
 black = "^21.9b0"
+pooch = "^1.5.2"
 
 [tool.poetry.scripts]
 imktk = "imktk:main"
