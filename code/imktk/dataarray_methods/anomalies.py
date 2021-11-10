@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 """Calculate anomalies within a xr.DataArray."""
-
+import xarray as xr
 
 def main(dataarray):
     """Return monthly anomalies for dataarray."""
