@@ -14,7 +14,7 @@ _DS_ENV = "XSUITE_DS_METHODS"
 logger = logging.getLogger(__name__)
 
 
-@xr.register_dataarray_accessor("xtend")
+@xr.register_dataarray_accessor("imktk")
 class _NyxDA(object):
     def __init__(self, data):
         self._data = data
@@ -26,7 +26,7 @@ class _NyxDA(object):
         return _load_from_env(mode="da")
 
 
-@xr.register_dataset_accessor("xtend")
+@xr.register_dataset_accessor("imktk")
 class _NyxDS(object):
     def __init__(self, data):
         self._data = data
@@ -76,7 +76,7 @@ def _add_folder(folder, mode=None):
     sys.path.insert(0, folder)
     for method in pythonfiles:
         try:
-            lib = ilib.import_module(method, package="xtend")
+            lib = ilib.import_module(method, package="imktk")
             _patch(getattr(lib, "main"), method, mode)
         except (SystemError, ImportError) as err:
             logger.info("Method: %s not loaded. Because: %s", method, err)
