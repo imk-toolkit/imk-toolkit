@@ -3,6 +3,7 @@
 """Calculate anomalies within a xr.DataArray."""
 import xarray as xr
 
+
 def main(dataarray):
     """Return monthly anomalies for dataarray."""
     assert isinstance(dataarray, xr.DataArray), "Input is not an xr.DataArray"
