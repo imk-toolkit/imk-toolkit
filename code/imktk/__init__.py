@@ -1,5 +1,5 @@
 import os
-from .toolkit import xtend_dataarray, xtend_dataset, _load_from_env
+from .toolkit import _load_from_env
 
 _load_from_env(mode="da")
 _load_from_env(mode="ds")
