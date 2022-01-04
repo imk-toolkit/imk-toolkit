@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 
-ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" PATH="/home/python/.poetry/bin:/home/python/.local/bin:$PATH" PIP_NO_CACHE_DIR="false"
+ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" PATH="/home/python/.poetry/bin:/home/python/.local/bin:$PATH" PIP_NO_CACHE_DIR="false" POETRY_VERSION="1.1.12"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    python3 python3-pip python3-venv python-is-python3 curl ca-certificates wait-for-it libpq-dev python3-dev build-essential gettext-base && \
+    python3 python3-pip python-is-python3 curl ca-certificates wait-for-it python3-dev && \
     rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid 1000 python && \
