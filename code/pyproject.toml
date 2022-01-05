@@ -7,7 +7,7 @@ authors = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 xarray = "^0.20.1"
 netCDF4 = "^1.5.8"
 
@@ -22,4 +22,4 @@ imktk = "imktk:main"
 
 [tool.black]
 line-length = 140
-target-version = ['py38']
+target-version = ['py37']
