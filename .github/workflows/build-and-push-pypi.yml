@@ -1,11 +1,11 @@
-name: Build and Push Docker Image
+name: Build and Push to PYPI
 on:
   push:
     tags:
       - 'v**'
       - '!v**-alpha'
 jobs:
-    Build-and-Push-Docker-Image:
+    Build-and-Push-to-PYPI:
         runs-on: ubuntu-latest
         steps:
             - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -17,11 +17,20 @@ jobs:
               shell: bash
               run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
               id: extract_branch
-            - name: Login to dockerhub
+            - name: Extract tag name
               shell: bash
-              working-directory: ./cicd-workflows
+              run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/tags/})"
+              id: extract_tag
+            - name: Install Poetry
               env:
+                POETRY_VERSION: "1.1.12"
+              uses: snok/install-poetry@v1
+            - name: Build and push packages to PYPI
+              shell: bash
+              working-directory: ./code
+              env:
+                PYPI_TOKEN: ${{ secrets.PYPI }}
+                PYPI_TEST_TOKEN: ${{ secrets.PYPI_TEST }}
                 CURRENT_BRANCH: ${{ steps.extract_branch.outputs.branch }}
-                DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-                DOCKER_SECRET: ${{ secrets.DOCKER_SECRET }}
-              run: ./build-and-push-docker-images.sh
+                CURRENT_TAG: ${{ steps.extract_tag.outputs.tag }}
+              run: ../cicd-workflows/build-and-push-pypi.sh
