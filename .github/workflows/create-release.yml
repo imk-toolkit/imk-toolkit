@@ -30,7 +30,7 @@ jobs:
             - name: Create Release
               uses: ncipollo/release-action@v1
               with:
-                artifacts: "code/dist/*"
+                artifacts: "./code/dist/*"
                 token: ${{ secrets.GITHUB_TOKEN }}
                 draft: false
                 prerelease: steps.check-version.outputs.prerelease == 'true'
