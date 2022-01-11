@@ -35,7 +35,7 @@ jobs:
                   POETRY_VERSION: ${{ steps.module_poetry.outputs.version }}
                   TAG_VERSION: ${{ steps.module_tag.outputs.version }}
               run: |
-                [[ $POETRY_VERSION == $TAG_VERSION ]]
+                [[ v$POETRY_VERSION == $TAG_VERSION ]]
             - name: Check kind of version
               id: check-version
               working-directory: ./code

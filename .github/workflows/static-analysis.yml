@@ -29,4 +29,4 @@ jobs:
         - name: Run flake8 linting
           shell: bash
           working-directory: ./code
-          run: poetry run flake8 . --count --show-source --statistics --color
+          run: poetry run flake8 . --count --show-source --statistics
