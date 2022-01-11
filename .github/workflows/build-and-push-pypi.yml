@@ -1,11 +1,7 @@
 name: Build and Push to PYPI
-on:
-  push:
-    tags:
-      - 'v**'
-      - '!v**-alpha'
+on: workflow_dispatch
 jobs:
-    Build-and-Push-to-PYPI:
+    build-and-push-to-pypi:
         runs-on: ubuntu-latest
         steps:
             - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -22,9 +18,9 @@ jobs:
               run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/tags/})"
               id: extract_tag
             - name: Install Poetry
-              env:
-                POETRY_VERSION: "1.1.12"
               uses: snok/install-poetry@v1
+              with:
+                version: 1.1.12
             - name: Build and push packages to PYPI
               shell: bash
               working-directory: ./code
