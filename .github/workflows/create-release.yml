@@ -28,9 +28,10 @@ jobs:
                 [[ "$(poetry version --short)" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
                   || echo ::set-output name=prerelease::true
             - name: Check poetry version
-              run: echo "Poetry version is - $(poetry version --short)"
+              working-directory: ./code
+              run: echo "Package $(poetry version --short)"
             - name: Check tag version
-              run: echo "   Tag version is - ${GITHUB_REF#refs/tags/}"
+              run: echo "    Tag ${GITHUB_REF#refs/tags/}"
             - name: Check if tag and poetry version match
               run: |
                 [[ "$(poetry version --short)" = "${GITHUB_REF#refs/tags/}" ]]
