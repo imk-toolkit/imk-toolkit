@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "imktk"
-version = "0.1.3-alpha"
+version = "0.1.3-alpha.2"
 description = "Toolkit provided by IMK at KIT"
 authors = [
     "Uğur Çayoğlu <cayoglu@me.com>",

@@ -3,7 +3,7 @@ name: Create a new release of the package
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - '*.*.*'
 
 jobs:
     create-release:
@@ -27,6 +27,13 @@ jobs:
               run: |
                 [[ "$(poetry version --short)" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
                   || echo ::set-output name=prerelease::true
+            - name: Check poetry version
+              run: echo "Poetry version is - $(poetry version --short)"
+            - name: Check tag version
+              run: echo "   Tag version is - ${GITHUB_REF#refs/tags/}"
+            - name: Check if tag and poetry version match
+              run: |
+                [[ "$(poetry version --short)" = "${GITHUB_REF#refs/tags/}" ]]
             - name: Create Release
               uses: ncipollo/release-action@v1
               with:
