@@ -19,7 +19,7 @@ cleanup() {
 echo "😊 This script is located at '${SOURCE_DIR}'."
 echo "😊 This script was exectued from '${WORKING_DIR}'."
 echo "😊 Executing branch is ${CURRENT_BRANCH}"
-echo "😊 Executing branch is ${CURRENT_TAG}"
+echo "😊 Executing tag is ${CURRENT_TAG}"
 
 get_pyproject_version() {
     cat pyproject.toml | grep ^version | cut -d'=' -f2 | sed -e 's: ::g' | sed -e 's:"::g' | awk '{print "v" $0}'
