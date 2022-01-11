@@ -2,8 +2,28 @@
 name = "imktk"
 version = "0.1.5"
 description = "Toolkit provided by IMK at KIT"
+license = "MIT"
 authors = [
-    "Uğur Çayoğlu <cayoglu@me.com>",
+    "Uğur Çayoğlu <Ugur.Cayoglu@kit.edu>",
+]
+readme = "../README.md"
+homepage = "https://github.com/imk-toolkit/imk-toolkit"
+repository = "https://github.com/imk-toolkit/imk-toolkit"
+documentation = "https://github.com/imk-toolkit/imk-toolkit"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
 ]
 
 [tool.poetry.dependencies]
