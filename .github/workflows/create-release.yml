@@ -34,7 +34,7 @@ jobs:
               run: echo "    Tag ${GITHUB_REF#refs/tags/}"
             - name: Check if tag and poetry version match
               run: |
-                [[ "$(poetry version --short)" = "${GITHUB_REF#refs/tags/}" ]]
+                [[ "$(poetry version --short)" == "${GITHUB_REF#refs/tags/}" ]]
             - name: Create Release
               uses: ncipollo/release-action@v1
               with:
