@@ -1,11 +1,12 @@
-name: Static testing
+name: Static analysis
 on:
   pull_request:
-    branches:
-      - master
+    branches: [master]
     types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [master]
 jobs:
-  static-testing:
+  static-analysis:
     runs-on: ubuntu-latest
     steps:
         - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -20,7 +21,7 @@ jobs:
         - name: Install package
           shell: bash
           working-directory: ./code
-          run: poetry install
+          run: poetry install --no-interaction --no-ansi -vv
         - name: Run Black8 formatting
           shell: bash
           working-directory: ./code
@@ -28,4 +29,4 @@ jobs:
         - name: Run flake8 linting
           shell: bash
           working-directory: ./code
-          run: poetry run flake8
+          run: poetry run flake8 . --count --show-source --statistics --color

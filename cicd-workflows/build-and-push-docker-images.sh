@@ -21,13 +21,7 @@ cleanup() {
 
 echo "😊 This script is located at '${SOURCE_DIR}'."
 echo "😊 This script was exectued from '${WORKING_DIR}'."
-echo "😊 Executing branch is ${CURRENT_BRANCH}"
-
-if [ "${CURRENT_BRANCH}" = "master" ]; then
-   DOCKER_TAG="stable"
-else
-   DOCKER_TAG="${CURRENT_BRANCH}"
-fi
+echo "🐋 Using tag '${DOCKER_TAG}' on docker."
 
 DOCKER_IMAGENAME="imktk/imktk:${DOCKER_TAG}"
 DOCKER_FILE="${SOURCE_DIR}/../code"

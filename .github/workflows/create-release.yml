@@ -20,7 +20,7 @@ jobs:
                 version: 1.1.12
             - name: Build project for distribution
               working-directory: ./code
-              run: poetry build
+              run: poetry build --no-interaction --no-ansi -vv
             - name: Extract module version from poetry
               shell: bash
               working-directory: ./code
@@ -30,19 +30,19 @@ jobs:
               shell: bash
               run: echo "##[set-output name=version;]$(echo ${GITHUB_REF#refs/tags/})"
               id: module_tag
-            - name: Check matchin names
+            - name: Check that module version from tag and poetry match
               env:
                   POETRY_VERSION: ${{ steps.module_poetry.outputs.version }}
                   TAG_VERSION: ${{ steps.module_tag.outputs.version }}
               run: |
                 [[ $POETRY_VERSION == $TAG_VERSION ]]
-            - name: Check Version
+            - name: Check kind of version
               id: check-version
               working-directory: ./code
               run: |
                 [[ "$(poetry version --short)" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
                   || echo ::set-output name=prerelease::true
-            - name: Create Release
+            - name: Create release
               uses: ncipollo/release-action@v1
               with:
                 artifacts: "./code/dist/*"
@@ -53,4 +53,12 @@ jobs:
               working-directory: ./code
               env:
                 POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI }}
-              run: poetry publish
+              run: poetry publish --no-interaction --no-ansi -vv
+            - name: Publish to Dockerhub
+              shell: bash
+              working-directory: ./cicd-workflows
+              env:
+                DOCKER_TAG: ${{ steps.module_poetry.outputs.version }}
+                DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                DOCKER_SECRET: ${{ secrets.DOCKER_SECRET }}
+              run: ./build-and-push-docker-images.sh
