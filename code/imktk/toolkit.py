@@ -25,6 +25,10 @@ class _NyxDA(object):
     def _load_env(self):
         return _load_from_env(mode="da")
 
+    def __repr__(self):
+        add_methods = [x for x in dir(self) if not x.startswith("_")]
+        return f"IMKTK.Dataarray(scripts: {add_methods})"
+
 
 @xr.register_dataset_accessor("imktk")
 class _NyxDS(object):
@@ -36,6 +40,10 @@ class _NyxDS(object):
 
     def _load_env(self):
         return _load_from_env(mode="ds")
+
+    def __repr__(self):
+        add_methods = [x for x in dir(self) if not x.startswith("_")]
+        return f"IMKTK.Dataset(scripts: {add_methods})"
 
 
 def _patch(func, funcname, mode):
