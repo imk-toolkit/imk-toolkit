@@ -1,8 +1,5 @@
 import os
-from .toolkit import _load_from_env
-
-_load_from_env(mode="da")
-_load_from_env(mode="ds")
+from .toolkit import _add_folder
 
 
 def main():
@@ -16,6 +13,11 @@ def location():
     da = os.path.join(directory, "dataarray_methods")
     ds = os.path.join(directory, "dataset_methods")
     return (loc, da, ds)
+
+
+_, da, ds = location()
+_add_folder(da, "da")
+_add_folder(ds, "ds")
 
 
 if __name__ == "__main__":
