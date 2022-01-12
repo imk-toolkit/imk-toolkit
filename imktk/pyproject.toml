@@ -36,7 +36,7 @@ pooch = "^1.5.2"
 flake8 = "^4.0.1"
 
 [tool.poetry.scripts]
-imktk = "imktk:main"
+imktk-dataarray = "imktk.cli:main"
 
 [tool.black]
 line-length = 140

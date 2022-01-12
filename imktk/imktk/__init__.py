@@ -18,7 +18,7 @@ def get_version():
 __version__ = get_version()
 
 
-def main():
+def main(*args, **kwargs):
     loc, da, ds = location()
     print(f"  Library version: {__version__}")
     print(f" Library location: {os.path.dirname(loc)}")
@@ -37,6 +37,8 @@ def location():
 _, da, ds = location()
 _add_folder(da, "da")
 _add_folder(ds, "ds")
+def cli_argument(*name_or_flags, **kwargs):
+    return ([*name_or_flags], kwargs)
 
 
 if __name__ == "__main__":
