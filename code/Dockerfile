@@ -3,8 +3,12 @@ FROM ubuntu:21.10
 ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" PATH="/home/python/.poetry/bin:/home/python/.local/bin:$PATH" PIP_NO_CACHE_DIR="false" POETRY_VERSION="1.1.12"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    python3 python3-pip python-is-python3 curl ca-certificates wait-for-it python3-dev && \
-    rm -rf /var/lib/apt/lists/*
+    ca-certificates \
+    curl \
+    python-is-python3 \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid 1000 python && \
     useradd  --uid 1000 --gid python --shell /bin/bash --create-home python
