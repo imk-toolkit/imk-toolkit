@@ -1,8 +1,21 @@
 import os
-from importlib import metadata
 from .toolkit import _add_folder
 
-__version__ = metadata.version("imktk")
+
+def get_version():
+    try:
+        # try new metadata package
+        from importlib import metadata
+
+        return metadata.version("imktk")
+    except ImportError:
+        # backup routine if Python version <= 3.7
+        import pkg_resources
+
+        return pkg_resources.get_distribution("imktk").version
+
+
+__version__ = get_version()
 
 
 def main():
