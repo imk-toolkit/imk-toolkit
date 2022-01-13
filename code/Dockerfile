@@ -1,6 +1,10 @@
 FROM ubuntu:21.10
 
-ENV LANG="C.UTF-8" LC_ALL="C.UTF-8" PATH="/home/python/.poetry/bin:/home/python/.local/bin:$PATH" PIP_NO_CACHE_DIR="false" POETRY_VERSION="1.1.12"
+ENV LANG="C.UTF-8" \
+    LC_ALL="C.UTF-8" \
+    PATH="/home/python/.poetry/bin:/home/python/.local/bin:$PATH" \
+    PIP_NO_CACHE_DIR="false" \
+    POETRY_VERSION="1.1.12"
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
