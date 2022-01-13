@@ -27,12 +27,18 @@ jobs:
         uses: snok/install-poetry@v1
         with:
           version: ${{ matrix.poetry-version }}
-          virtualenvs-create: false
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
       - name: Install package
         shell: bash
         working-directory: ./code
         run: poetry install --no-interaction --no-ansi -vv
       - name: Import module
+        shell: bash
+        working-directory: ./code
         run: python -c "import imktk"
       - name: Run cli tool
+        shell: bash
+        working-directory: ./code
         run: imktk
