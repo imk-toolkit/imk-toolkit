@@ -27,6 +27,7 @@ jobs:
         uses: snok/install-poetry@v1
         with:
           version: ${{ matrix.poetry-version }}
+          virtualenvs-create: false
       - name: Install package
         shell: bash
         working-directory: ./code
