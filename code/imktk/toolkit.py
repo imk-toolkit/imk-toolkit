@@ -87,9 +87,9 @@ def _add_folder(folder, mode=None):
             lib = ilib.import_module(method, package="imktk")
             _patch(getattr(lib, "main"), method, mode)
         except (SystemError, ImportError) as err:
-            logger.info("Method: %s not loaded. Because: %s", method, err)
+            logger.error("Method: %s not loaded. Because: %s", method, err)
         except AttributeError as err:
-            logger.info("Method: %s has no 'main' function (err: %s).", method, err)
+            logger.error("Method: %s has no 'main' function (err: %s).", method, err)
     return True
 
 
