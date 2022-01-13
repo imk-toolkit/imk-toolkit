@@ -43,3 +43,7 @@ imktk = "imktk:main"
 [tool.black]
 line-length = 140
 target-version = ['py37']
+
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
