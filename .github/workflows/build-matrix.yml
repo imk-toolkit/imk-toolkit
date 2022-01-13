@@ -10,9 +10,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.7, 3.8, 3.9, 3.10]
-        poetry-version: [1.0, 1.1.12]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
+        python-version: [3.7, 3.8]
+        poetry-version: [1.1.12]
+        os: [ubuntu-18.04]  #, macos-latest, windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -27,10 +27,10 @@ jobs:
         uses: abatilo/actions-poetry@v2.0.0
         with:
           poetry-version: ${{ matrix.poetry-version }}
-      - name: View poetry --help
-        run: poetry --help
       - name: Install package
         working-directory: ./code
         run: poetry install --no-interaction --no-ansi -vv
+      - name: Import module
+        run: python -c "import imktk"
       - name: Run cli tool
         run: imktk
