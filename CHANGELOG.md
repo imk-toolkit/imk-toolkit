@@ -6,11 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Docker image file size.
+- Docker image and file size.
 - Source release file size.
 ### Added
-- Version and script location for `imktk`.
+- Version output for `imktk`.
 - Printing of available scripts.
+- Build information for supporting `python -m build`
+### Fixed
+- Loading of scripts without environment variable.
 
 ## [0.1.5] - 2022-01-11
 ### Added
