@@ -37,8 +37,12 @@ jobs:
       - name: Import module
         shell: bash
         working-directory: ./code
-        run: python -c "import imktk"
+        run: |
+          source .venv/bin/activate
+          python -c "import imktk"
       - name: Run cli tool
         shell: bash
         working-directory: ./code
-        run: imktk
+        run: |
+          source .venv/bin/activate
+          imktk
