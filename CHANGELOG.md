@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Version output for `imktk`.
 - Printing of available scripts.
-- Build information for supporting `python -m build`
+- Build information for supporting `python -m build`.
+- Proper logging information.
 ### Fixed
 - Loading of scripts without environment variable.
 
