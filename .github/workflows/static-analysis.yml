@@ -20,13 +20,13 @@ jobs:
             version: 1.1.12
         - name: Install package
           shell: bash
-          working-directory: ./code
+          working-directory: ./imktk
           run: poetry install --no-interaction --no-ansi -vv
         - name: Run Black8 formatting
           shell: bash
-          working-directory: ./code
+          working-directory: ./imktk
           run: poetry run black --color --diff --check .
         - name: Run flake8 linting
           shell: bash
-          working-directory: ./code
+          working-directory: ./imktk
           run: poetry run flake8 . --count --show-source --statistics

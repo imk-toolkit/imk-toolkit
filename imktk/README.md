@@ -30,7 +30,7 @@ python3 -m pip install imktk
 
 Currently the package does no support native installation using `conda`
 respectively `conda-forge`. This feature is on the roadmap and you can follow
-its process using issue [#34](https://github.com/imk-toolkit/imk-toolkit/issues/34). 
+its process using issue [#34](https://github.com/imk-toolkit/imk-toolkit/issues/34).
 The current workaround for `conda` installation is to use the following steps
 for any given environment `<env>`.
 
@@ -55,11 +55,11 @@ these steps
 git clone https://github.com/imk-toolkit/imk-toolkit.git
 ```
 
-2. Enter the `code` directory and build Python packages for installation. The
+2. Enter the `imktk` directory and build Python packages for installation. The
 installation files will be saved in `imk-toolkit/dist`
 
 ```bash
-cd imk-toolkit/code && python3 -m build
+cd imk-toolkit/imktk && python3 -m build
 ```
 
 3. Enter the `dist` directory and install packages

@@ -1,6 +1,6 @@
 version: "3.8"
 
 services:
-  code:
+  imktk:
     volumes:
-      - ./code:/home/python/code
+      - ./imktk:/home/python/imktk
