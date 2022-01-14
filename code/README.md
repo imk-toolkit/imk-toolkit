@@ -1,8 +1,7 @@
 # IMK Toolkit
 
 This toolkit provides post-processing scripts developed by members of the
-[Institute of Meteorology and Climate Research (IMK)]
-(https://dev.to/epassaro/keep-your-research-reproducible-with-conda-pack-and-github-actions-339n)
+[Institute of Meteorology and Climate Research (IMK)](https://dev.to/epassaro/keep-your-research-reproducible-with-conda-pack-and-github-actions-339n)
 at the Karlsruhe Institute of Technology (KIT). The goal of this module is to
 gather together python post-processing scripts for the analysis of netCDF
 data.
