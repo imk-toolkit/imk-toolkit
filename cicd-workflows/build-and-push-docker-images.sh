@@ -24,7 +24,7 @@ echo "😊 This script was exectued from '${WORKING_DIR}'."
 echo "🐋 Using tag '${DOCKER_TAG}' on docker."
 
 DOCKER_IMAGENAME="imktk/imktk:${DOCKER_TAG}"
-DOCKER_FILE="${SOURCE_DIR}/../code"
+DOCKER_FILE="${SOURCE_DIR}/../imktk"
 
 echo "🔧 Building and tagging docker image"
 docker build --tag  "${DOCKER_IMAGENAME}" "${DOCKER_FILE}"

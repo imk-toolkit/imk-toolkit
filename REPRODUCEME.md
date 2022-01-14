@@ -22,17 +22,17 @@ sudo docker-compose build .
 
 2.1 Start `python` within docker container
 ```bash
-sudo docker-compose run code python
+sudo docker-compose run imktk python
 ```
 
 # Add a python package
 
 1. Use `poetry` to add package and resolve dependencies
 ```
-sudo docker-compose run code poetry add <package>
+sudo docker-compose run imktk poetry add <package>
 ```
 
 2. Commit changes to git
 ```
-git add code/poetry.lock code/pyproject.toml
+git add imktk/poetry.lock imktk/pyproject.toml
 ```
