@@ -18,13 +18,13 @@ RUN groupadd --gid 1000 python && \
     useradd  --uid 1000 --gid python --shell /bin/bash --create-home python
 
 USER 1000
-RUN mkdir /home/python/code
-WORKDIR /home/python/code
+RUN mkdir /home/python/imktk
+WORKDIR /home/python/imktk
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 RUN poetry config virtualenvs.create false
 
-COPY --chown=python:python . /home/python/code/
+COPY --chown=python:python . /home/python/imktk/
 RUN poetry install --no-interaction --no-ansi
 
 CMD ["imktk"]

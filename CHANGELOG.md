@@ -4,15 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+## Changed
+- Internal naming of elements.
+
 ## [0.1.6] - 2022-01-13
-### Changed
-- Docker image and file size.
-- Source release file size.
 ### Added
 - Version output for `imktk`.
 - Printing of available scripts.
 - Build information for supporting `python -m build`.
 - Proper logging information.
+### Changed
+- Docker image and file size.
+- Source release file size.
 ### Fixed
 - Loading of scripts without environment variable.
 
