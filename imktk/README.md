@@ -83,4 +83,4 @@ t = xr.tutorial.open_dataset("rasm").load().Tair
 anomaly_free_t = t.imktk.anomalies()
 ```
 ## Further reading
-If you are interested in the inner workings of the package and details of the implementation please refer to the embedded [README.md](./imktk/README.md).
+If you are interested in the inner workings of the package and details of the implementation please refer to the embedded [README.md](https://github.com/imk-toolkit/imk-toolkit/blob/master/imktk/imktk/README.md).
