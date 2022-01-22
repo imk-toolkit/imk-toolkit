@@ -75,17 +75,20 @@ these steps
 git clone https://github.com/imk-toolkit/imk-toolkit.git
 ```
 
-2. Enter the `imktk` directory and build Python packages for installation. The
-installation files will be saved in `imk-toolkit/dist`
+2. Generate the Python packages
 
 ```bash
-cd imk-toolkit/imktk && python3 -m build
+python3 -m build
+# or
+make package
 ```
 
-3. Enter the `dist` directory and install packages
+3. Install packages
 
 ```bash
-cd dist && pip3 install imktk-<current.version>-py3-none-any.whl
+pip3 install dist/imktk-<current.version>-py3-none-any.whl
+# or
+make install
 ```
 
 Please be aware that the package uses `HDF5` and `netCDF` c-library in the

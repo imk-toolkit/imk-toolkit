@@ -10,6 +10,18 @@ bash:
 	@echo "===================================================================="
 	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk bash
 
+package:
+	@echo "===================================================================="
+	@echo "Generate Python packages"
+	@echo "===================================================================="
+	@python3 -m build
+
+install: package
+	@echo "===================================================================="
+	@echo "Install generated Python packages"
+	@echo "===================================================================="
+	@python3 -m pip install $(shell ls dist/*.whl)
+
 black:
 	@echo "===================================================================="
 	@echo "Check code format via black"
@@ -22,4 +34,4 @@ flake8:
 	@echo "===================================================================="
 	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
 
-.PHONY: build bash black flake8
+.PHONY: build bash black flake8 install package
