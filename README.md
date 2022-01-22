@@ -22,8 +22,9 @@ docker run -it -v $(pwd)/imktk:/home/python/imktk imktk/imktk bash
 # or
 make bash
 ```
-> Changes to the files are directly reflected within the container. Therefore,
-> this method is **recommended for development purposes**
+> Changes to the repository are directly reflected within the container.
+> Therefore, this method is **recommended for development purposes**.
+> For details see [`CONTRIBUTING.md`](/CONTRIBUTING.md)
 
 ## Install
 
