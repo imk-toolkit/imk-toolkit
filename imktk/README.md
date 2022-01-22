@@ -31,8 +31,8 @@ structure defined in next section will be saved in these locations. The
 saved in [`dataset_methods`](./dataset_methods) will be added to the
 `xarray.Dataset` class and all scripts saved in [`dataarray_methods`]
 (./dataarray_methods) will be added to the `xarray.DataArray` class. The
-scripts can then be executed using the filename of the script and `imktk` extension. Let
-`Tair` be an `xarray.DataArray` for air temperature. The script
+scripts can then be executed using the filename of the script and `imktk`
+extension. Let `Tair` be an `xarray.DataArray` for air temperature. The script
 [`anomalies.py`](./dataarray_methods/anomalies.py) can be executed on this
 data using the command `temp.imktk.anomalies()`. Here an example:
 
@@ -49,8 +49,8 @@ anomaly_free_t = t.imktk.anomalies()
 There are two premises which `imktk` assumes about the scripts to be loaded.
 These are:
 
-1. The script has a `main(..)` function 2. The first argument of the `main
-(..)` is either a `xarray.Dataset` (for [`dataset_methods`](./dataset_methods)
+1. The script has a `main(..)` function 2. The first argument of the
+`main(..)` is either a `xarray.Dataset` (for [`dataset_methods`](./dataset_methods)
 scripts) or `xarray.DataArray` (for [`dataarray_methods`](./dataarray_methods)
 scripts)
 

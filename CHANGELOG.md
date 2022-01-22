@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Documentation to internal structure.
+- Makefile for better handling of docker container.
+### Removed
+- Docker-compose setup.
 
 ## [0.1.7] - 2022-01-14
 ### Changed

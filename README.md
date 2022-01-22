@@ -3,8 +3,27 @@
 This toolkit provides post-processing scripts developed by members of the
 [Institute of Meteorology and Climate Research (IMK)](https://dev.to/epassaro/keep-your-research-reproducible-with-conda-pack-and-github-actions-339n)
 at the Karlsruhe Institute of Technology (KIT). The goal of this module is to
-gather together python post-processing scripts for the analysis of netCDF
-data.
+gather together python post-processing scripts for the analysis of netCDF data.
+
+## Getting Started
+The easiest method to test the module before installation is to use the
+provided  [`Dockerfile`](/Dockerfile) (together with [`Makefile`](/Makefile)).
+
+### Build the container
+```bash
+docker build --tag imktk/imktk .
+# or
+make build
+```
+
+### Enter the container
+```bash
+docker run -it -v $(pwd)/imktk:/home/python/imktk imktk/imktk bash
+# or
+make bash
+```
+> Changes to the files are directly reflected within the container. Therefore,
+> this method is **recommended for development purposes**
 
 ## Install
 
@@ -82,5 +101,7 @@ import xarray as xr
 t = xr.tutorial.open_dataset("rasm").load().Tair
 anomaly_free_t = t.imktk.anomalies()
 ```
+
 ## Further reading
-If you are interested in the inner workings of the package and details of the implementation please refer to the embedded [README.md](https://github.com/imk-toolkit/imk-toolkit/blob/master/imktk/imktk/README.md).
+If you are interested in the inner workings of the package and details of the
+implementation please refer to the embedded [README.md](/imktk/README.md).
