@@ -30,19 +30,19 @@ jobs:
           virtualenvs-create: true
           virtualenvs-in-project: true
           installer-parallel: true
+      - name: Poetry Environment Information
+        run: |
+          poetry env info
+          poetry env list
       - name: Install package
-        shell: bash
-        working-directory: ./imktk
         run: poetry install --no-interaction --no-ansi -vv
       - name: Import module
-        shell: bash
         working-directory: ./imktk
         run: |
-          source .venv/bin/activate
+          source $(poetry env info --path)/bin/activate
           python -c "import imktk"
       - name: Run cli tool
-        shell: bash
         working-directory: ./imktk
         run: |
-          source .venv/bin/activate
+          source $(poetry env info --path)/bin/activate
           imktk

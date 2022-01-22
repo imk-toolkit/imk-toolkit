@@ -18,12 +18,13 @@ jobs:
               uses: snok/install-poetry@v1.2.1
               with:
                 version: 1.1.12
+                virtualenvs-create: true
+                virtualenvs-in-project: true
+                installer-parallel: true
             - name: Build project for distribution
-              working-directory: ./imktk
               run: poetry build --no-interaction --no-ansi -vv
             - name: Extract module version from poetry
               shell: bash
-              working-directory: ./imktk
               run: echo "##[set-output name=version;]$(poetry version --short)"
               id: module_poetry
             - name: Extract module version from tag
@@ -38,7 +39,6 @@ jobs:
                 [[ v$POETRY_VERSION == $TAG_VERSION ]]
             - name: Check kind of version
               id: check-version
-              working-directory: ./imktk
               run: |
                 [[ "$(poetry version --short)" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] \
                   || echo ::set-output name=prerelease::true
@@ -50,7 +50,6 @@ jobs:
                 draft: false
                 prerelease: steps.check-version.outputs.prerelease == 'true'
             - name: Publish to PyPI
-              working-directory: ./imktk
               env:
                 POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI }}
               run: poetry publish --no-interaction --no-ansi -vv
