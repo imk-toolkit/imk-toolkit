@@ -1,9 +1,0 @@
-version: "3.8"
-
-services:
-  imktk:
-    build:
-      context: ./imktk
-      dockerfile: Dockerfile
-    env_file:
-      - ./env/.env
