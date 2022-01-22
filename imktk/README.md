@@ -1,79 +1,40 @@
-# IMK Toolkit
+# imktk
 
-This toolkit provides post-processing scripts developed by members of the
-[Institute of Meteorology and Climate Research (IMK)](https://dev.to/epassaro/keep-your-research-reproducible-with-conda-pack-and-github-actions-339n)
-at the Karlsruhe Institute of Technology (KIT). The goal of this module is to
-gather together python post-processing scripts for the analysis of netCDF
-data.
+In the following we will describe in detail the goal, inner workings and
+functioning properties of the `imktk` module.
 
-## Install
+## Idea
 
-Choose one of the following methods to install the package:
+As in many other scientific fields there are repeating tasks which have to be
+done almost everyone. Most often the predecessors already have done the task
+in the past. In an ideal world, these scripts are shared and distributed
+within the institute in such a way that everyone has access to them.
+Unfortunately often the reality is different. Most tasks are solved by
+several times by different individuals and mistakes are repeated. Everyone
+has its own way to deal with the problem and find a different solution. The
+goal of `imktk` is to enable easy distribution of these post-processing
+scripts in atmospheric sciences. Further, the module should help achieve a
+reproducible research environment and an easily extensible structure.
 
-1. Install using `pip`
-2. Install using `conda`
-3. Install straight from this repository using `git clone`
+- Easy distribution of post-processing script
+- Common basis for future developments
+- Common coding standards for the development of post-processing script
 
-This package supports `Python3` starting with version `3.7`. If you are using
-an earlier version of `Python` please consider updating your system.
+## Solution
 
-### `pip`
-
-Releases are automatically uploaded to PyPI. Please execute following command
-to install the package.
-
-```
-python3 -m pip install imktk
-```
-
-### `conda`
-
-Currently the package does no support native installation using `conda`
-respectively `conda-forge`. This feature is on the roadmap and you can follow
-its process using issue [#34](https://github.com/imk-toolkit/imk-toolkit/issues/34).
-The current workaround for `conda` installation is to use the following steps
-for any given environment `<env>`.
-
-1. Activate the environment
-```bash
-conda activate <env>
-```
-2. Install using `pip`
-```bash
-python3 -m pip install imktk
-```
-
-### `git clone`
-
-It is also possible to install the package natively by cloning the repository.
-If you are interested in using this method of installation please follow
-these steps
-
-1. Clone repository
-
-```bash
-git clone https://github.com/imk-toolkit/imk-toolkit.git
-```
-
-2. Enter the `imktk` directory and build Python packages for installation. The
-installation files will be saved in `imk-toolkit/dist`
-
-```bash
-cd imk-toolkit/imktk && python3 -m build
-```
-
-3. Enter the `dist` directory and install packages
-
-```bash
-cd dist && pip3 install imktk-<current.version>-py3-none-any.whl
-```
-
-Please be aware that the package uses `HDF5` and `netCDF` c-library in the
-backend. If you are installing using this method consider setting the
-`HDF5_DIR` environment variable with the location of the HDF5 header files.
-
-
-## Usage
+There are two location for the scripts to be saved by the scientists. These
+are the folders [`dataset_methods`](./dataset_methods) and
+[`dataarray_methods`](./dataarray_methods). All scripts adhering to the
+structure defined in next section will be saved in these locations. The
+`imktk` will then scan these folders (i.e. on `import imktk`) and extend the
+`xarray` module with the functionalities defined in the scripts. All scripts
+saved in [`dataset_methods`](./dataset_methods) will be added to the
+`xarray.Dataset` class and all scripts saved in [`dataarray_methods`]
+(./dataarray_methods) will be added to the `xarray.DataArray` class. The
+scripts can then be executed using the filename of the script and `imktk` extension. Let
+`Tair` be an `xarray.DataArray` for air temperature. The script
+[`anomalies.py`](./dataarray_methods/anomalies.py) can be executed on this
+data using the command `temp.imktk.anomalies()`. Here an example:
 
 ```python
 import imktk
@@ -82,5 +43,29 @@ import xarray as xr
 t = xr.tutorial.open_dataset("rasm").load().Tair
 anomaly_free_t = t.imktk.anomalies()
 ```
-## Further reading
-If you are interested in the inner workings of the package and details of the implementation please refer to the embedded [README.md](https://github.com/imk-toolkit/imk-toolkit/blob/master/imktk/imktk/README.md).
+
+## Requirements
+
+There are two premises which `imktk` assumes about the scripts to be loaded.
+These are:
+
+1. The script has a `main(..)` function 2. The first argument of the `main
+(..)` is either a `xarray.Dataset` (for [`dataset_methods`](./dataset_methods)
+scripts) or `xarray.DataArray` (for [`dataarray_methods`](./dataarray_methods)
+scripts)
+
+The toolkit needs a common entrypoint for the execution of the script. This
+method must be available in each script. Should the function be not
+available, loading of the script will not work and silently fail. This is the
+`main` function and it will be executed by the script. The first argument of
+this function call will be the element on which the method is being called.
+This is the cause for the second premise: It must be either a
+`xarray.Dataset` for the scripts at [`dataset_methods`](./dataset_methods)
+and a `xarray.DataArray` for the scripts saved at [`dataarray_methods`](./dataarray_methods).
+
+
+## Implementation
+
+The main skeleton of the module is saved in the [`toolkit.py`](./toolkit.py).
+It defines the classes and necessary methods to register the
+scripts at the `xarray` endpoint.
