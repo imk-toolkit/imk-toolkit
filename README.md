@@ -13,7 +13,7 @@ provided  [`Dockerfile`](/Dockerfile) (together with [`Makefile`](/Makefile)).
 ```bash
 docker build --tag imktk/imktk .
 # or
-make build
+make container
 ```
 
 ### Enter the container
@@ -80,7 +80,9 @@ git clone https://github.com/imk-toolkit/imk-toolkit.git
 ```bash
 python3 -m build
 # or
-make package
+make
+# or
+make build
 ```
 
 3. Install packages

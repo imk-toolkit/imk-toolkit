@@ -1,5 +1,17 @@
 build:
 	@echo "===================================================================="
+	@echo "Build Python packages"
+	@echo "===================================================================="
+	@python3 -m build
+
+install:
+	@echo "===================================================================="
+	@echo "Install built Python packages"
+	@echo "===================================================================="
+	@python3 -m pip install $(shell ls dist/*.whl)
+
+container:
+	@echo "===================================================================="
 	@echo "Build Docker Container"
 	@echo "===================================================================="
 	@docker build --tag imktk/imktk .
@@ -9,18 +21,6 @@ bash:
 	@echo "Start container and bash"
 	@echo "===================================================================="
 	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk bash
-
-package:
-	@echo "===================================================================="
-	@echo "Generate Python packages"
-	@echo "===================================================================="
-	@python3 -m build
-
-install: package
-	@echo "===================================================================="
-	@echo "Install generated Python packages"
-	@echo "===================================================================="
-	@python3 -m pip install $(shell ls dist/*.whl)
 
 black:
 	@echo "===================================================================="

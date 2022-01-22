@@ -5,7 +5,7 @@
 It is highly recommended to use the provided [Makefile](/Makefile) for creating
 a reproducible development environment.
 
-1. First create the docker container using `make build`.
+1. First create the docker container using `make container`.
 2. Start and enter the container using `make bash`.
 
 This setup mounts the current [`imktk`](/imktk) folder into the docker environment.
