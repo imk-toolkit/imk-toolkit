@@ -22,14 +22,14 @@ def main(dataarray, temp, press):
     assert isinstance(dataarray, xr.DataArray), "Input is not an xr.DataArray"
     assert isinstance(temp, xr.DataArray), "Temperature is not an xr.DataArray"
     assert isinstance(press, xr.DataArray), "Pressure is not an xr.DataArray"
-    assert (dataarray.shape == temp.shape), "Input and Temperature are not of the same shape"
-    avogadro = 6.02214076e23      # mol-1
-    r_gas  = 8.31446261815324     # J mol-1 K-1
-    if press.ndim == 1:     # data on fixed pressure grid
-        var_nd = xr.DataArray(data = np.empty_like(dataarray), coords=dataarray.coords)
+    assert dataarray.shape == temp.shape, "Input and Temperature are not of the same shape"
+    avogadro = 6.02214076e23  # mol-1
+    r_gas = 8.31446261815324  # J mol-1 K-1
+    if press.ndim == 1:  # data on fixed pressure grid
+        var_nd = xr.DataArray(data=np.empty_like(dataarray), coords=dataarray.coords)
         for i in enumerate(press):
-            var_nd[:,i,:] = avogadro * press[i] / (r_gas * temp[:,i,:]) * dataarray[:,i,:]
-    else:       # data on model levels
-        assert (dataarray.shape == press.shape), "Input and Pressure are not of the same shape"
+            var_nd[:, i, :] = avogadro * press[i] / (r_gas * temp[:, i, :]) * dataarray[:, i, :]
+    else:  # data on model levels
+        assert dataarray.shape == press.shape, "Input and Pressure are not of the same shape"
         var_nd = avogadro * press / (r_gas * temp) * dataarray
     return var_nd
