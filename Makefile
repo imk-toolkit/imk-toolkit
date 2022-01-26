@@ -1,4 +1,4 @@
-build:
+build: check-dependencies
 	@echo "===================================================================="
 	@echo "Build Python packages"
 	@echo "===================================================================="
@@ -34,4 +34,12 @@ flake8:
 	@echo "===================================================================="
 	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
 
-.PHONY: build bash black flake8 install package
+.PHONY: build bash black flake8 install package check-dependencies
+
+check-dependencies:
+	@echo "===================================================================="
+	@echo "Check all dependencies for build"
+	@echo "===================================================================="
+	@python3 -c "import build" \
+		|| echo "DependencyError: Please install 'build' module using 'python3 -m pip install build'" \
+		&& exit 1

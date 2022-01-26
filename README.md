@@ -9,14 +9,14 @@ gather together python post-processing scripts for the analysis of netCDF data.
 The easiest method to test the module before installation is to use the
 provided  [`Dockerfile`](/Dockerfile) (together with [`Makefile`](/Makefile)).
 
-### Build the container
+Build the container
 ```bash
 docker build --tag imktk/imktk .
 # or
 make container
 ```
 
-### Enter the container
+Enter the container
 ```bash
 docker run -it -v $(pwd)/imktk:/home/python/imktk imktk/imktk bash
 # or
@@ -69,13 +69,18 @@ It is also possible to install the package natively by cloning the repository.
 If you are interested in using this method of installation please follow
 these steps
 
-1. Clone repository
+1. Install build dependencies
+```bash
+python3 -m pip install build
+```
+
+2. Clone repository
 
 ```bash
 git clone https://github.com/imk-toolkit/imk-toolkit.git
 ```
 
-2. Generate the Python packages
+3. Generate the Python packages
 
 ```bash
 python3 -m build
@@ -85,7 +90,7 @@ make
 make build
 ```
 
-3. Install packages
+4. Install packages
 
 ```bash
 pip3 install dist/imktk-<current.version>-py3-none-any.whl
