@@ -26,10 +26,9 @@ def main(dataarray, temp, press):
     avogadro = 6.02214076e23  # mol-1
     r_gas = 8.31446261815324  # J mol-1 K-1
     if press.ndim == 1:  # data on fixed pressure grid
-        var_nd = xr.DataArray(data=np.empty_like(dataarray), coords=dataarray.coords)
-        for i in enumerate(press):
-            var_nd[:, i, :] = avogadro * press[i] / (r_gas * temp[:, i, :]) * dataarray[:, i, :]
+        press_mdim = np.array(int(dataarray.size / press.size) * [press.values]).reshape(dataarray.shape)
     else:  # data on model levels
-        assert dataarray.shape == press.shape, "Input and Pressure are not of the same shape"
-        var_nd = avogadro * press / (r_gas * temp) * dataarray
+        press_mdim = press
+    assert dataarray.shape == press_mdim.shape, "Input and Pressure are not of the same shape"
+    var_nd = avogadro * press_mdim / (r_gas * temp) * dataarray
     return var_nd
