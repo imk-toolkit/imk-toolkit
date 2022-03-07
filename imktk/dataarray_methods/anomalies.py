@@ -2,7 +2,7 @@
 # coding: utf-8
 """Calculate anomalies within a xr.DataArray."""
 import xarray as xr
-from imktk.dataarray_methods import climatology
+from imktk.climatology import main as climatology
 
 
 def main(dataarray):
