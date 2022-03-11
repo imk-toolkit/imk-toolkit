@@ -33,20 +33,20 @@ class Requirements_1(ImktkRequirements):
     """
 
     def test_some_feature_1(self, result):
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
 
     def test_some_feature_2(self, result):
-        assert True  # TODO: Assert something has sense
+        assert True  # Write your result assert as simple as possible
 
     def test_some_feature_3(self, result):
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
 
     def test_some_feature_4(self, result):
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
 
 
 class Requirements_2(ImktkRequirements):
@@ -56,13 +56,13 @@ class Requirements_2(ImktkRequirements):
     """
 
     def test_extra_feature_1(self, result):
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
 
     def test_extra_feature_2(self, result):
-        assert True  # TODO: Assert something has sense
-        assert True  # TODO: Assert something has sense
+        assert True  # Write your result assert as simple as possible
+        assert True  # Write your result assert as simple as possible
 
 
 # Parametrization section -------------------------------------------
