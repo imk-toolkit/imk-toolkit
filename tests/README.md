@@ -19,7 +19,7 @@ tests
 ├── dataarrays_data     # Folder for dataarray test data
 │   ├── __init__.py       # Init file to import data generators
 │   └── ...               # Methods, files and generators
-├── datasets_data       # Folder for dataarray test data
+├── datasets_data       # Folder for dataset test data
 │   ├── __init__.py       # Init file to import data generators
 │   └── ...               # Methods, files and generators
 ├── __init__.py         # Init file to allow test imports
@@ -48,7 +48,7 @@ Access the file for more detailed comments and descriptions about each of
 the classes and sections.
 
 #### conftests.py
-This tests framework is build in a way you probably you already have available
+This tests framework is build in a way that you probably have already available
 the required fixtures for your tests. You should not write fixtures but rather
 try to reuse the already existing ones.
 
@@ -61,13 +61,13 @@ You have two folders available where to save and write your test data:
  - `datarrays_data`: Package for your dataarray test methods and files.
  - `datasets_data`: Package for your dataset test methods and files.
 
-Avoid creating long code for generating your dataset/dataarrays for testing
-in your `test_` file. This makes tests and requirements more readable and
-understandable. Use the defined folders.
+Avoid creating long code in your `test_` file for generating datasets
+or dataarrays for testing. This makes tests and requirements more readable
+and understandable. Use the defined folders for this purpose.
 
 In addition, note the speed of the tests is related to the size of your
-data. Try always to use the minimum size that match your requirements for
-testing.
+data. Try always to a minimum size example that match your requirements
+when testing.
 
 
 ## Running only your method tests
