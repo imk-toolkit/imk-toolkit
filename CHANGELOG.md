@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for changing logging setting via `IMKTK_LOGLEVEL` environment variable.
 - Support dataarray script paths using `IMKTK_DATAARRAY` environment variable.
 - Support dataset script paths using `IMKTK_DATASET` environment variable.
+- Labels `latest` and `testing` to docker images on dockerhub.
 ### Removed
 - Docker-compose setup.
 ### Fixed
