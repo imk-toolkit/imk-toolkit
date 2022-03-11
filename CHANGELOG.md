@@ -9,9 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation to internal structure.
 - Makefile for better handling of docker container.
 - Contributing.md documentation.
-- [DataArray] script for calculation of number density `num_den`. 
+- [DataArray] script for calculation of number density `num_den`.
+- `lint` method in Makefile.
 ### Removed
 - Docker-compose setup.
+### Fixed
+- Makefile execution if default `build` module was installed.
 
 ## [0.1.7] - 2022-01-14
 ### Changed
