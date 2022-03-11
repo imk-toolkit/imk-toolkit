@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support dataarray script paths using `IMKTK_DATAARRAY` environment variable.
 - Support dataset script paths using `IMKTK_DATASET` environment variable.
 - Labels `latest` and `testing` to docker images on dockerhub.
+- Support for aliases `format` and `fmt` for `black` execution in Makefile.
 ### Removed
 - Docker-compose setup.
 ### Fixed
