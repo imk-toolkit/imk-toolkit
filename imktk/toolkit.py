@@ -12,20 +12,17 @@ _DA_ENV = "IMKTK_DATAARRAY"
 _DS_ENV = "IMKTK_DATASET"
 _LOG_LEVEL = "IMKTK_LOGLEVEL"
 
+
 def _get_log_level_via_env():
     loglevel = os.environ.get(_LOG_LEVEL, "ERROR")
     numeric_level = getattr(logging, loglevel.upper(), None)
     if not isinstance(numeric_level, int):
-        raise ValueError(f'Invalid log level: {loglevel}')
+        raise ValueError(f"Invalid log level: {loglevel}")
     return numeric_level
 
 
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=_get_log_level_via_env()
-    )
+logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=_get_log_level_via_env())
 logger = logging.getLogger(__name__)
-
 
 
 @xr.register_dataarray_accessor("imktk")
@@ -83,7 +80,6 @@ def _add_folder(folder, mode=None):
     assert isinstance(mode, str) and mode.lower() in ["ds", "da"], "Can not understand mode {}".format(mode)
     assert os.path.isdir(folder), '"{}" is not a folder'.format(folder)
     mode = mode.lower()
-    env = _DS_ENV if mode == "ds" else _DA_ENV
     folder = os.path.realpath(folder)
 
     pythonfiles = [x[:-3] for x in os.listdir(folder) if x.endswith(".py") and not x.startswith("_")]
