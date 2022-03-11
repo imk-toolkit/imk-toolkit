@@ -23,6 +23,7 @@ def module(request):
 def folder(request):
     return request.param
 
+
 @fixture(scope="class")
 def result(method, args, kwargs):
     return method(*args, **kwargs)
