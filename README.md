@@ -21,10 +21,10 @@ Choose one of the following methods to install the package:
 
 1. Install using `pip`
 2. Install using `conda`
-3. Install straight from this repository using `git clone`
+3. Install using `git clone`
 
-This package supports `Python3` starting with version `3.7`. If you are using
-an earlier version of `Python` please consider updating your system.
+> This package supports only Python 3 with version `>=3.7`. If you are using
+> an earlier version of Python please consider updating.
 
 ### `pip`
 
@@ -72,24 +72,18 @@ git clone https://github.com/imk-toolkit/imk-toolkit.git
 3. Generate the Python packages
 
 ```bash
-python3 -m build
-# or
-make
-# or
-make build
+python3 -m build  # or `make build`
 ```
 
 4. Install packages
 
 ```bash
-pip3 install dist/imktk-<current.version>-py3-none-any.whl
-# or
-make install
+pip3 install dist/imktk-<current.version>-py3-none-any.whl  # or `make install`
 ```
 
-Please be aware that the package uses `HDF5` and `netCDF` c-library in the
-backend. If you are installing using this method consider setting the
-`HDF5_DIR` environment variable with the location of the HDF5 header files.
+> Please be aware that this package uses `HDF5` and `netCDF` c-libraries in the
+> backend. If you are installing using `git clone` the `HDF5_DIR` environment
+> variable with the location of the HDF5 header files needs to be set.
 
 
 ## Usage
