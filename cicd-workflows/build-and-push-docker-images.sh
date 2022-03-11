@@ -20,19 +20,24 @@ cleanup() {
 }
 
 echo "😊 This script is located at '${SOURCE_DIR}'."
-echo "😊 This script was exectued from '${WORKING_DIR}'."
+echo "😊 This script was executed from '${WORKING_DIR}'."
 echo "🐋 Using tag '${DOCKER_TAG}' on docker."
 
-DOCKER_IMAGENAME="imktk/imktk:${DOCKER_TAG}"
+DOCKER_VERSION_NUMBER="imktk/imktk:${DOCKER_TAG}"
 DOCKER_FILE="${SOURCE_DIR}/../"
+DOCKER_VERSION_RELATIVE="imktk/imktk:testing"
+
+if [[ $DOCKER_TAG != *"rc"* ]]; then
+  DOCKER_VERSION_RELATIVE="imktk/imktk:latest"
+fi
 
 echo "🔧 Building and tagging docker image"
-docker build --tag  "${DOCKER_IMAGENAME}" "${DOCKER_FILE}"
+docker build --tag "${DOCKER_VERSION_NUMBER}" --tag "${DOCKER_VERSION_RELATIVE}" "${DOCKER_FILE}"
 
 echo "🐋 Logging in to dockerhub"
 docker login --username="${DOCKER_USERNAME}" --password="${DOCKER_SECRET}"
 
-echo "👆 Pushing ${DOCKER_IMAGENAME} to dockerhub"
-docker push "${DOCKER_IMAGENAME}"
+echo "👆 Pushing ${DOCKER_VERSION_NUMBER} to dockerhub"
+docker push "imktk/imktk" --all-tags
 
 echo "🌟 Script ended successfully"

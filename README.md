@@ -10,8 +10,10 @@ The easiest method to test the module is to use an interactive session with dock
 In this environment you will have a Python 3 environment with all necessary dependencies already installed.
 
 ```bash
-docker run -it imktk/imktk:<version> bash
+docker run -it imktk/imktk:latest bash
 ```
+
+> For the brave: You can test the latest release candidate by changing `latest` to `testing`
 
 ## Install
 
