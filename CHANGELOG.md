@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contributing.md documentation.
 - [DataArray] script for calculation of number density `num_den`.
 - `lint` method in Makefile.
+- Support for changing logging setting via `IMKTK_LOGLEVEL`
 ### Removed
 - Docker-compose setup.
 ### Fixed
