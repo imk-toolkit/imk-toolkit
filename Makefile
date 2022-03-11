@@ -41,5 +41,4 @@ check-dependencies:
 	@echo "Check all dependencies for build"
 	@echo "===================================================================="
 	@python3 -c "import build" \
-		|| echo "DependencyError: Please install 'build' module using 'python3 -m pip install build'" \
-		&& exit 1
+		|| (echo "DependencyError: Please install 'build' module using 'python3 -m pip install build'" && exit 1)
