@@ -1,5 +1,5 @@
 import os
-from .toolkit import _add_folder
+from .toolkit import _add_folder, _load_from_env
 
 
 def get_version():
@@ -37,6 +37,7 @@ def location():
 _, da, ds = location()
 _add_folder(da, "da")
 _add_folder(ds, "ds")
+_load_from_env()
 
 
 if __name__ == "__main__":

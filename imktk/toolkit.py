@@ -8,8 +8,8 @@ import sys
 import xarray as xr
 import logging
 
-_DA_ENV = "XSUITE_DA_METHODS"
-_DS_ENV = "XSUITE_DS_METHODS"
+_DA_ENV = "IMKTK_DATAARRAY"
+_DS_ENV = "IMKTK_DATASET"
 _LOG_LEVEL = "IMKTK_LOGLEVEL"
 
 def _get_log_level_via_env():
@@ -80,19 +80,13 @@ def xtend_dataset(ds_folder=None):
 
 
 def _add_folder(folder, mode=None):
-    if not isinstance(mode, str) or mode.lower() not in ["ds", "da"]:
-        raise ValueError("Can not understand mode {}".format(mode))
-    mode = mode.lower()
-    env = "XTEND_DS" if mode == "ds" else "XTEND_DA"
-
-    if not folder:
-        folder = os.environ.get(env, False)
-    if not folder:
-        return False
+    assert isinstance(mode, str) and mode.lower() in ["ds", "da"], "Can not understand mode {}".format(mode)
     assert os.path.isdir(folder), '"{}" is not a folder'.format(folder)
+    mode = mode.lower()
+    env = _DS_ENV if mode == "ds" else _DA_ENV
     folder = os.path.realpath(folder)
 
-    pythonfiles = [x[:-3] for x in os.listdir(folder) if x.endswith(".py") and x[0] != "_"]
+    pythonfiles = [x[:-3] for x in os.listdir(folder) if x.endswith(".py") and not x.startswith("_")]
     if not pythonfiles:
         logger.warning("Folder %s is empty. No methods added.", folder)
         return None
