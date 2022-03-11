@@ -35,8 +35,10 @@ flake8:
 	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
 
 lint: flake8
+format: black
+fmt: black
 
-.PHONY: build bash black flake8 install lint package check-dependencies
+.PHONY: build bash black check-dependencies flake8 fmt format install lint package test
 
 check-dependencies:
 	@echo "===================================================================="
