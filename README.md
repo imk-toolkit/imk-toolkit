@@ -1,9 +1,38 @@
 # IMK Toolkit
 
-This toolkit provides post-processing scripts developed by members of the
+This toolkit provides [post-processing scripts](/imktk) developed by members of the
 [Institute of Meteorology and Climate Research (IMK)](https://dev.to/epassaro/keep-your-research-reproducible-with-conda-pack-and-github-actions-339n)
 at the Karlsruhe Institute of Technology (KIT). The goal of this module is to
-gather together python post-processing scripts for the analysis of netCDF data.
+gather together python post-processing scripts for the analysis of netCDF data
+and distribute them easily.
+
+> User provided scripts can be imported using the environmental variables `IMKTK_DATAARRAY` and `IMKTK_DATASET`.
+
+## Usage
+
+```python
+import imktk
+import xarray as xr
+
+t = xr.tutorial.open_dataset("rasm").load().Tair
+anomaly_free_t = t.imktk.anomalies()
+```
+
+#### User provided scripts
+
+For user provided scripts please set up the appropriate environmental variables:
+
+| Supported variables | Description |
+|---|---|
+|`IMKTK_DATAARRAY`| Path to `xr.DataArray` scripts |
+|`IMKTK_DATASET`| Path to `xr.Dataset` scripts |
+|`IMKTK_LOGLEVEL`| Print debugging information: `DEBUG`, `INFO`, `WARNING`, `ERROR` |
+
+Environmental variables can be set using `export` command
+```bash
+export IMKTK_DATAARRAY=/path/to/scripts
+```
+
 
 ## Getting Started
 The easiest method to test the module is to use an interactive session with docker.
@@ -84,17 +113,6 @@ pip3 install dist/imktk-<current.version>-py3-none-any.whl  # or `make install`
 > Please be aware that this package uses `HDF5` and `netCDF` c-libraries in the
 > backend. If you are installing using `git clone` the `HDF5_DIR` environment
 > variable with the location of the HDF5 header files needs to be set.
-
-
-## Usage
-
-```python
-import imktk
-import xarray as xr
-
-t = xr.tutorial.open_dataset("rasm").load().Tair
-anomaly_free_t = t.imktk.anomalies()
-```
 
 ## Further reading
 If you are interested in the inner workings of the package and details of the
