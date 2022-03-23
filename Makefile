@@ -41,19 +41,19 @@ watch: container
 	@echo "===================================================================="
 	@echo "Starting watch environment in docker container"
 	@echo "===================================================================="
-	@docker run --workdir /home/python --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk make check
+	@docker run --pull never --workdir /home/python --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk make check
 
 black:
 	@echo "===================================================================="
 	@echo "Check code format via black"
 	@echo "===================================================================="
-	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run black .
+	@docker run --pull never --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run black .
 
 flake8:
 	@echo "===================================================================="
 	@echo "Check code linting via flake8 (deprecated; please use `make watch`)"
 	@echo "===================================================================="
-	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
+	@docker run --pull never --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
 
 .PHONY: build bash black check check-dependencies flake8 fmt format install lint watch
 
