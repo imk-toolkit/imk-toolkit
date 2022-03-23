@@ -20,7 +20,7 @@ bash:
 	@echo "===================================================================="
 	@echo "Start container and bash"
 	@echo "===================================================================="
-	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk bash
+	@docker run --rm -it -v $(shell pwd):/home/python/imktk imktk/imktk bash
 
 check:
 	@while inotifywait -q -e modify -e create -e delete -e move --recursive /home/python/ ; do \
