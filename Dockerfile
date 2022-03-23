@@ -9,6 +9,8 @@ ENV LANG="C.UTF-8" \
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
+    inotify-tools \
+    make \
     python-is-python3 \
     python3 \
     python3-pip \
