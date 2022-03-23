@@ -21,7 +21,7 @@ USER 1000
 RUN mkdir /home/python/imktk
 WORKDIR /home/python/imktk
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/ecb030e1f0b7c13cc11971f00ee5012e82a892bc/get-poetry.py | python
 RUN poetry config virtualenvs.create false
 
 COPY --chown=python:python . /home/python/
