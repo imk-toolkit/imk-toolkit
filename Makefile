@@ -25,12 +25,12 @@ bash:
 check:
 	@while inotifywait -q -e modify -e create -e delete -e move --recursive /home/python/ ; do \
 		clear; \
-		# echo "===================================================================="; \
-		# echo "Check & correct format via black"; \
-		# echo "===================================================================="; \
-		# black /home/python/imktk; \
-		# echo ""; \
-		# echo ""; \
+		echo "===================================================================="; \
+		echo "Check & correct format via black"; \
+		echo "===================================================================="; \
+		black --check /home/python/imktk; \
+		echo ""; \
+		echo ""; \
 		echo "===================================================================="; \
 		echo "Formatting and linting"; \
 		echo "===================================================================="; \
