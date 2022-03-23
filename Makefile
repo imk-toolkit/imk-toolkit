@@ -41,7 +41,7 @@ watch: container
 	@echo "===================================================================="
 	@echo "Starting watch environment in docker container"
 	@echo "===================================================================="
-	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk make -C /home/python check
+	@docker run --workdir /home/python --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk make check
 
 black:
 	@echo "===================================================================="
