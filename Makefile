@@ -20,7 +20,7 @@ bash:
 	@echo "===================================================================="
 	@echo "Start container and bash"
 	@echo "===================================================================="
-	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk bash
+	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk bash
 
 check:
 	@while inotifywait -q -e modify -e create -e delete -e move --recursive /home/python/ ; do \
@@ -41,19 +41,19 @@ watch: container
 	@echo "===================================================================="
 	@echo "Starting watch environment in docker container"
 	@echo "===================================================================="
-	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk make -C /home/python check
+	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk make -C /home/python check
 
 black:
 	@echo "===================================================================="
 	@echo "Check code format via black"
 	@echo "===================================================================="
-	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run black .
+	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run black .
 
 flake8:
 	@echo "===================================================================="
 	@echo "Check code linting via flake8 (deprecated; please use `make watch`)"
 	@echo "===================================================================="
-	@docker run -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
+	@docker run --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
 
 .PHONY: build bash black check check-dependencies flake8 fmt format install lint watch
 
