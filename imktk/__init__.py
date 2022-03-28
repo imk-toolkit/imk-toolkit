@@ -1,6 +1,6 @@
 import os
 from .toolkit import _add_folder, _load_from_env
-
+from . import tutorial
 
 def get_version():
     try:
