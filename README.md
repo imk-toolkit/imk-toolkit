@@ -18,8 +18,6 @@ t = xr.tutorial.open_dataset("rasm").load().Tair
 anomaly_free_t = t.imktk.anomalies()
 ```
 
-#### User provided scripts
-
 For user provided scripts please set up the appropriate environmental variables:
 
 | Supported variables | Description |
@@ -29,12 +27,13 @@ For user provided scripts please set up the appropriate environmental variables:
 |`IMKTK_LOGLEVEL`| Print debugging information: `DEBUG`, `INFO`, `WARNING`, `ERROR` |
 
 Environmental variables can be set using `export` command
+
 ```bash
 export IMKTK_DATAARRAY=/path/to/scripts
 ```
 
-
 ## Getting Started
+
 The easiest method to test the module is to use an interactive session with docker.
 In this environment you will have a Python 3 environment with all necessary dependencies already installed.
 
@@ -60,7 +59,7 @@ Choose one of the following methods to install the package:
 Releases are automatically uploaded to PyPI. Please execute following command
 to install the package.
 
-```
+```bash
 python3 -m pip install imktk
 ```
 
@@ -73,13 +72,16 @@ The current workaround for `conda` installation is to use the following steps
 for any given environment `<env>`.
 
 1. Activate the environment
-```bash
-conda activate <env>
-```
+
+    ```bash
+    conda activate <env>
+    ```
+
 2. Install using `pip`
-```bash
-python3 -m pip install imktk
-```
+
+    ```bash
+    python3 -m pip install imktk
+    ```
 
 ### `git clone`
 
@@ -88,32 +90,34 @@ If you are interested in using this method of installation please follow
 these steps
 
 1. Install build dependencies
-```bash
-python3 -m pip install build
-```
+
+    ```bash
+    python3 -m pip install build
+    ```
 
 2. Clone repository
 
-```bash
-git clone https://github.com/imk-toolkit/imk-toolkit.git
-```
+    ```bash
+    git clone https://github.com/imk-toolkit/imk-toolkit.git
+    ```
 
 3. Generate the Python packages
 
-```bash
-python3 -m build  # or `make build`
-```
+    ```bash
+    python3 -m build  # or `make build`
+    ```
 
 4. Install packages
 
-```bash
-pip3 install dist/imktk-<current.version>-py3-none-any.whl  # or `make install`
-```
+    ```bash
+    pip3 install dist/imktk-<current.version>-py3-none-any.whl  # or `make install`
+    ```
 
 > Please be aware that this package uses `HDF5` and `netCDF` c-libraries in the
 > backend. If you are installing using `git clone` the `HDF5_DIR` environment
 > variable with the location of the HDF5 header files needs to be set.
 
 ## Further reading
+
 If you are interested in the inner workings of the package and details of the
 implementation please refer to the embedded [README.md](/imktk/README.md).
