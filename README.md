@@ -12,10 +12,9 @@ and distribute them easily.
 
 ```python
 import imktk
-import xarray as xr
 
-t = xr.tutorial.open_dataset("rasm").load().Tair
-anomaly_free_t = t.imktk.anomalies()
+ds = imktk.tutorial.open_dataset("toy_weather")
+anomaly_free_tmin = ds.tmin.imktk.anomalies()
 ```
 
 For user provided scripts please set up the appropriate environmental variables:
