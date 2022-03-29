@@ -28,6 +28,7 @@ classifiers = [
 python = "^3.8, <3.11"
 xarray = "^0.20.1"
 netCDF4 = "^1.5.8"
+scipy = "^1.9.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.4"
