@@ -243,6 +243,17 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "scipy"
+version = "1.9.0"
+description = "SciPy: Scientific Library for Python"
+category = "main"
+optional = false
+python-versions = ">=3.8,<3.12"
+
+[package.dependencies]
+numpy = ">=1.18.5,<1.25.0"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -289,7 +300,7 @@ viz = ["matplotlib", "seaborn", "nc-time-axis"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8, <3.11"
-content-hash = "c22383fe7533a2ec5491687c179585240c7dc38a2e7e9466e8848d368e90cf93"
+content-hash = "bf88ae88c3a26eb557c03613b144f193390b7ad42b9d155c6b4fa7d7674b4cea"
 
 [metadata.files]
 atomicwrites = []
@@ -314,6 +325,7 @@ pyflakes = []
 pytest = []
 python-dateutil = []
 pytz = []
+scipy = []
 six = []
 tomli = []
 typing-extensions = []

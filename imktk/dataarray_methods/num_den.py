@@ -15,6 +15,7 @@ author: Stefan Versick (KIT)
 """
 import xarray as xr
 import numpy as np
+from imktk import constants as cs
 
 
 def main(dataarray, temp, press):
@@ -23,12 +24,11 @@ def main(dataarray, temp, press):
     assert isinstance(temp, xr.DataArray), "Temperature is not an xr.DataArray"
     assert isinstance(press, xr.DataArray), "Pressure is not an xr.DataArray"
     assert dataarray.shape == temp.shape, "Input and Temperature are not of the same shape"
-    avogadro = 6.02214076e23  # mol-1
-    r_gas = 8.31446261815324  # J mol-1 K-1
+
     if press.ndim == 1:  # data on fixed pressure grid
         press_mdim = np.array(int(dataarray.size / press.size) * [press.values]).reshape(dataarray.shape)
     else:  # data on model levels
         press_mdim = press
     assert dataarray.shape == press_mdim.shape, "Input and Pressure are not of the same shape"
-    var_nd = avogadro * press_mdim / (r_gas * temp) * dataarray
+    var_nd = cs.avogadro * press_mdim / (cs.r_gas * temp) * dataarray
     return var_nd
