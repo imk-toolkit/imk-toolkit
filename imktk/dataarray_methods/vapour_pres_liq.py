@@ -22,10 +22,8 @@ def main(T):
     dataarray: saturation vapour pressure over liquid water in Pa.
     """
     assert isinstance(T, xr.DataArray), "Input is not an xr.DataArray"
-    
     if (T.max(skipna=True) >= 332) | (T.min(skipna=True) <= 123):
         warnings.warn("At least one of the values of T is out of range.")
-        
     p_liq = np.exp(
         54.842763
         - 6763.22 / T
