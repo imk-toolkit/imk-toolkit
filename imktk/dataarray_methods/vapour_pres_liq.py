@@ -2,7 +2,7 @@
 
 """
 Calculate saturation vapour pressure over liquid water for temperatures 123 K < T < 332 K according to
-Murphy & Koop.
+Murphy & Koop, 2005 doi: 10.1256/qj.04.94.
 """
 import xarray as xr
 import numpy as np
