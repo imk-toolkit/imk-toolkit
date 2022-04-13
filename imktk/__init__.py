@@ -25,6 +25,7 @@ def main():
     print(f" Library location: {os.path.dirname(loc)}")
     print(f"Dataarray scripts: {da}")
     print(f"  Dataset scripts: {ds}")
+    print(f"    Tutorial data: {tutorial._TUTORIAL_DATA.keys()}")
 
 
 def location():
