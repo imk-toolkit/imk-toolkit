@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Template files for scripts e.g. [Dataarrays](/imktk/dataarray_methods/_template.py).
 - Watch ability for [Makefile](/Makefile).
 - Dataarray method for [vapour pressure over liquid water](/imktk/dataarray_methods/vapour_pres_liq.py).
+- Dataarray method for [climatology](/imktk/dataarray_methods/climatology.py).
 
 ## [0.1.8] - 2022-03-14
 
