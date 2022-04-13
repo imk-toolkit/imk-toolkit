@@ -51,7 +51,7 @@ black:
 
 flake8:
 	@echo "===================================================================="
-	@echo "Check code linting via flake8 (deprecated; please use `make watch`)"
+	@echo "Check code linting via flake8 (deprecated; please use 'make watch')"
 	@echo "===================================================================="
 	@docker run --pull never --rm -it -v $(shell pwd)/imktk:/home/python/imktk imktk/imktk poetry run flake8
 
