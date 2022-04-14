@@ -24,10 +24,5 @@ def main(T):
     assert isinstance(T, xr.DataArray), "Input is not a xr.DataArray"
     if (T.max(skipna=True) > 273.15) | (T.min(skipna=True) <= 110):
         warnings.warn("At least one of the values of T is out of range.")
-    p_ice = np.exp(
-        9.550426
-        - 5723.265 / T
-        + 3.53068 * np.log(T)
-        - 0.00728332 * T
-        )
+    p_ice = np.exp(9.550426 - 5723.265 / T + 3.53068 * np.log(T) - 0.00728332 * T)
     return p_ice
