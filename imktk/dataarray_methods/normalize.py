@@ -1,13 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-Multi-line documentation placeholder if whole module needs to be explained.
-
-Multi line documentation for data processing. Multi line documentation
-for data processing. Multi line documentation for data processing.
-Multi line documentation for data processing. Multi line documentation
-for data processing. Multi line documentation for data processing.
-Multi line documentation for data processing.
+This module provides a normalization method for imktk.
 """
 import xarray as xr
 
@@ -15,23 +9,13 @@ import xarray as xr
 def main(dataarray):
     """One line documentation for data processing.
 
-    Multi line documentation for data processing. Multi line documentation
-    for data processing. Multi line documentation for data processing. Multi
-    line documentation for data processing. Multi line documentation for
-    data processing. Multi line documentation for data processing. Multi
-    line documentation for data processing. Multi line documentation for
-    data processing.
-
     Arguments
     =========
-    dataarray: <Description>
-    argument1: <Description>
-    ...
-    argumentX: <Description>
+    dataarray: Climate dataarray
 
     Returns
     =======
-    dataarray: <Description>
+    dataarray: Normalized climate dataarray
     """
     assert isinstance(dataarray, xr.DataArray), "Input is not an xr.DataArray"
 
