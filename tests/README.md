@@ -1,4 +1,4 @@
-# testing
+# Testing
 In the following we will describe in detail how testing is designed on the 
 `imktk` module together with on how to add your tests and requirements.
 
