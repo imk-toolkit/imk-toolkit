@@ -7,7 +7,7 @@ from climatology import main as climatology
 
 def main(dataarray):
     """Return monthly anomalies for dataarray.
-    
+
     Arguments
     =========
     dataarray: Climate dataarray with `time` coordinate
