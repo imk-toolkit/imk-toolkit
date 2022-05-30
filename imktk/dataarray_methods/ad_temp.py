@@ -3,8 +3,6 @@
 Calculate temperature for adiabatic process in air.
 """
 import xarray as xr
-import numpy as np
-
 
 def main(T_0, p_0, p):
     """Calculate temperature for adiabatic process in air.
