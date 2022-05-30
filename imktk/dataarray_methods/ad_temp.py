@@ -16,7 +16,7 @@ def main(T_0, p_0, p):
     p_0: float
         Pressure of start condition
     p: xr.DataArray
-    
+
     Returns
     =======
     dataarray: temperature for adiabatic process
