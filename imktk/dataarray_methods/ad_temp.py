@@ -4,6 +4,7 @@ Calculate temperature for adiabatic process in air.
 """
 import xarray as xr
 
+
 def main(T_0, p_0, p):
     """Calculate temperature for adiabatic process in air.
 
