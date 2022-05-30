@@ -29,4 +29,3 @@ def main(T_0, p_0, p):
 
     T_ad = T_0 * (p / p_0) ** ((kappa_air - 1) / kappa_air)
     return T_ad
-
