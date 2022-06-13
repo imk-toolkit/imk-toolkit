@@ -16,7 +16,7 @@ def main(p, T_0, p_0):
         Temperature of start condition in K
     p_0: float
         Pressure of start condition
-    
+
     Returns
     =======
     dataarray: temperature for adiabatic process
