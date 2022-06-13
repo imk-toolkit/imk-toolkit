@@ -5,17 +5,18 @@ Calculate temperature for adiabatic process in air.
 import xarray as xr
 
 
-def main(T_0, p_0, p):
+def main(p, T_0, p_0):
     """Calculate temperature for adiabatic process in air.
 
     Arguments
     =========
+    p: xr.DataArray
+        pressure
     T_0: float
         Temperature of start condition in K
     p_0: float
         Pressure of start condition
-    p: xr.DataArray
-
+    
     Returns
     =======
     dataarray: temperature for adiabatic process
