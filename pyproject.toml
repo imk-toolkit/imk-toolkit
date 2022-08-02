@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "imktk"
-version = "0.1.9-rc.1"
+version = "0.1.9-rc.2"
 description = "Toolkit provided by IMK at KIT"
 license = "MIT"
 authors = [
@@ -19,19 +19,19 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Atmospheric Science",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7, <3.10"
+python = "^3.8, <3.11"
 xarray = "^0.20.1"
 netCDF4 = "^1.5.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.4"
-black = "^21.9b0"
+black = "^22.6.0"
 flake8 = "^4.0.1"
 
 [tool.poetry.scripts]
@@ -39,7 +39,7 @@ imktk = "imktk:main"
 
 [tool.black]
 line-length = 140
-target-version = ['py37']
+target-version = ['py38']
 
 [build-system]
 requires = ["poetry_core>=1.0.0"]
