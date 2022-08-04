@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Constant module using `from imktk import constants as cs`
-
+- Dataarray method for [flight tracks](/imktk/dataarray_methods/flight_track.py).
 
 ## [0.2.0] - 2022-08-04
 

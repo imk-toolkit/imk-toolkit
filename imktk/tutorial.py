@@ -19,6 +19,14 @@ import xarray as xr
 import pandas as pd
 
 
+def _xarray_flight_tracks():
+    """Generate toy data for testing flight tracks."""
+    return xr.DataArray(
+        np.sin(0.3 * np.arange(100).reshape(5, 4, 5)),
+        [("lat", np.arange(5)), ("lon", [0.1, 0.2, 0.3, 0.4]), ("lev", np.arange(5))],
+    )
+
+
 def _xarray_toy_weather_data(seed=None):
     """Generate toy weather data.
 
@@ -57,10 +65,11 @@ def _xarray_toy_weather_data(seed=None):
 _TUTORIAL_DATA = {
     "toy_weather": _xarray_toy_weather_data,
     "xarray": _xarray_toy_weather_data,
+    "flight": _xarray_flight_tracks,
 }
 
 
-def open_dataset(keyword, seed=None):
+def open_dataset(keyword, **kwargs):
     """Provides example data based on keyword.
 
 
@@ -74,7 +83,7 @@ def open_dataset(keyword, seed=None):
     dataset: Generated dataset
     """
     try:
-        return _TUTORIAL_DATA[keyword](seed)
+        return _TUTORIAL_DATA[keyword](**kwargs)
     except KeyError:
         msg = f"Could not find {keyword} in tutorial data"
         raise KeyError(msg)
