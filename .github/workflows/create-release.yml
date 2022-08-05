@@ -23,20 +23,20 @@ jobs:
                 installer-parallel: true
             - name: Build project for distribution
               run: poetry build --no-interaction --no-ansi -vv
-            - name: Extract module version from poetry
-              shell: bash
-              run: echo "##[set-output name=version;]$(poetry version --short)"
-              id: module_poetry
-            - name: Extract module version from tag
-              shell: bash
-              run: echo "##[set-output name=version;]$(echo ${GITHUB_REF#refs/tags/})"
-              id: module_tag
-            - name: Check that module version from tag and poetry match
-              env:
-                  POETRY_VERSION: ${{ steps.module_poetry.outputs.version }}
-                  TAG_VERSION: ${{ steps.module_tag.outputs.version }}
-              run: |
-                [[ v$POETRY_VERSION == $TAG_VERSION ]]
+            # - name: Extract module version from poetry
+            #   shell: bash
+            #   run: echo "##[set-output name=version;]$(poetry version --short)"
+            #   id: module_poetry
+            # - name: Extract module version from tag
+            #   shell: bash
+            #   run: echo "##[set-output name=version;]$(echo ${GITHUB_REF#refs/tags/})"
+            #   id: module_tag
+            # - name: Check that module version from tag and poetry match
+            #   env:
+            #       POETRY_VERSION: ${{ steps.module_poetry.outputs.version }}
+            #       TAG_VERSION: ${{ steps.module_tag.outputs.version }}
+            #   run: |
+            #     [[ v$POETRY_VERSION == $TAG_VERSION ]]
             - name: Check kind of version
               id: check-version
               run: |
@@ -49,10 +49,10 @@ jobs:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 draft: false
                 prerelease: steps.check-version.outputs.prerelease == 'true'
-            - name: Publish to PyPI
-              env:
-                POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI }}
-              run: poetry publish --no-interaction --no-ansi -vv
+            # - name: Publish to PyPI
+            #   env:
+            #     POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI }}
+            #   run: poetry publish --no-interaction --no-ansi -vv
             - name: Publish to Dockerhub
               shell: bash
               working-directory: ./cicd-workflows
