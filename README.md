@@ -6,30 +6,29 @@ at the Karlsruhe Institute of Technology (KIT). The goal of this module is to
 gather together python post-processing scripts for the analysis of netCDF data
 and distribute them easily.
 
-> User provided scripts can be imported using the environmental variables `IMKTK_DATAARRAY` and `IMKTK_DATASET`.
-
 ## Usage
+Simply import the library using `import imktk`. From then on all scripts are
+available using the `imktk` attribute:
 
 ```python
 import imktk
 
-ds = imktk.tutorial.open_dataset("toy_weather")
-anomaly_free_tmin = ds.tmin.imktk.anomalies()
+ds = imktk.tutorial.open_dataset("toy_weather")  # Load example dataset
+anomaly_free_tmin = ds.tmin.imktk.anomalies()  # Select dataarray `xr.tmin` and execute anomalies script
 ```
 
-For user provided scripts please set up the appropriate environmental variables:
+The following is a list of available scripts:
 
-| Supported variables | Description |
-|---|---|
-|`IMKTK_DATAARRAY`| Path to `xr.DataArray` scripts |
-|`IMKTK_DATASET`| Path to `xr.Dataset` scripts |
-|`IMKTK_LOGLEVEL`| Print debugging information: `DEBUG`, `INFO`, `WARNING`, `ERROR` |
 
-Environmental variables can be set using `export` command
-
-```bash
-export IMKTK_DATAARRAY=/path/to/scripts
-```
+| Description | Example usage | Link to Script
+|--------|--------|-------------|
+|Calculate temperature for adiabatic process in air|`ds.tmin.imktk.ad_temp(temp_at_0, press_at_0)`| [here](./imktk/dataarray_methods/ad_temp.py)|
+|Calculate monthly anomalies|`ds.tmin.imktk.anomalies()`| [here](./imktk/dataarray_methods/anomalies.py)|
+|Calculate monthly climatology|`ds.tmin.imktk.climatology()`| [here](./imktk/dataarray_methods/climatology.py)|
+|Interpolation routine for flight track (incl. aircraft and satellites)| `ds.tmin.imktk.flight_track(**dims)` | [here](./imktk/dataarray_methods/flight_track.py) |
+|Calculate number density from mixing ratio, temperature and pressure| `ds.tmin.imktk.num_den(temp, press)` | [here](./imktk/dataarray_methods/num_den.py)|
+|Calculate saturation vapour pressure over ice for temperatures > 110 K| `ds.tmin.imktk.vapour_pres_ice()` | [here](./imktk/dataarray_methods/vapour_pres_ice.py)|
+|Calculate saturation vapour pressure over liquid water for temperatures 123 K < T < 332 K|`ds.tmin.imktk.vapour_pres_liq()` | [here](./imktk/dataarray_methods/vapour_pres_liq.py)|
 
 ## Getting Started
 
