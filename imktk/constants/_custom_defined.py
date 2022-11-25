@@ -5,7 +5,8 @@ Physical constants used by several scripts.
 # fmt: off
 __all__ = [
     "avogadro",
-    "r_gas", "r_g"
+    "r_gas", "r_g",
+    "kappa_air"
 ]
 # fmt: on
 
