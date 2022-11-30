@@ -6,7 +6,8 @@ Physical constants used by several scripts.
 __all__ = [
     "avogadro",
     "r_gas", "r_g",
-    "kappa_air"
+    "c_p_air",
+    "c_v_air"
 ]
 # fmt: on
 
