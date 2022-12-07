@@ -26,6 +26,5 @@ def main(p, T_0, p_0):
     assert isinstance(p_0, float), "Input is not a float"
     assert isinstance(p, xr.DataArray), "Input is not a xr.DataArray"
 
-    kappa_air = cs.c_p_air / cs.c_v_air
-    T_ad = T_0 * (p_0 / p) ** ((1 - kappa_air) / kappa_air)
+    T_ad = T_0 * (p_0 / p) ** ((1 - cs.kappa_air) / cs.kappa_air)
     return T_ad
