@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "imktk"
-version = "0.2.1"
+version = "0.2.2"
 description = "Toolkit provided by IMK at KIT"
 license = "MIT"
 authors = [
