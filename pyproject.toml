@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "imktk"
-version = "0.2.2"
+version = "0.2.3"
 description = "Toolkit provided by IMK at KIT"
 license = "MIT"
 authors = [
@@ -25,7 +25,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8, <3.11"
+python = "^3.8"
 xarray = "^0.20.1"
 netCDF4 = "^1.5.8"
 scipy = "^1.9.0"
