@@ -27,4 +27,3 @@ jobs:
                 artifacts: "./imktk/dist/*"
                 token: ${{ secrets.GITHUB_TOKEN }}
                 draft: false
-                prerelease: steps.check-version.outputs.prerelease == 'true'
