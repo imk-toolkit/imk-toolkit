@@ -21,9 +21,14 @@ jobs:
                 installer-parallel: true
             - name: Build project for distribution
               run: poetry build --no-interaction --no-ansi -vv
+            - name: Retrieve library version via poetry
+              run: |
+                echo "POETRY_TAG=$(poetry version -s)" >> $GITHUB_OUTPUT
+              id: version
             - name: Create release
               uses: ncipollo/release-action@v1
               with:
                 artifacts: "./imktk/dist/*"
                 token: ${{ secrets.GITHUB_TOKEN }}
                 draft: false
+                tag: ${{ steps.version.outputs.POETRY_TAG }}
